@@ -1,25 +1,29 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Box, Typography, Stack } from "@mui/material";
 import { Videos, SideBar } from "./";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 import Loading from "./Loading";
+import { useGlobalContext } from "../context/context";
 function Feed() {
-  const [selectedCategory, setSelectedCategory] = useState("New");
-  const [videos,setVideos] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const {
+    selectedCategory,
+    setSelectedCategory,
+    loading,
+    setLoading,
+    videos,
+    setVideos,
+  } = useGlobalContext();
 
   useEffect(() => {
-    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then(
-      (data) => {
-        setVideos(data.items);
-        setLoading(false);
-      }
-    );
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) => {
+      setVideos(data.items);
+      setLoading(false);
+    });
   }, [selectedCategory]);
-  console.log(videos)
+
   if (loading) {
-    return <Loading/>
+    return <Loading />;
   }
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
@@ -52,7 +56,7 @@ function Feed() {
             color: "white",
           }}
         >
-          {selectedCategory}{' '}
+          {selectedCategory}{" "}
           <span
             style={{
               color: "#F31503",

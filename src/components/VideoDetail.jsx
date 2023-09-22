@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
 import { Typography, Box, Stack } from "@mui/material";
@@ -7,17 +7,15 @@ import { CheckCircle } from "@mui/icons-material";
 import { Videos } from "./";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 import Loading from "./Loading";
+import { useGlobalContext } from "../context/context";
+
 function VideoDetail() {
-  const [videoDetail, setVideoDetail] = useState(null);
-  const [videos, setVideos] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { videoDetail, setVideoDetail, videos, setVideos, loading, setLoading } = useGlobalContext();
   const { id } = useParams();
 
   useEffect(() => {
     try {
-      
-    
-      
+      setLoading(true);
       fetchFromAPI(`videos?part=snippet,statistics&id=${id}`).then((data) => {
         setVideoDetail(data.items[0]);
          setLoading(false);
@@ -38,8 +36,7 @@ function VideoDetail() {
     }
    
   }, [id]);
-  console.log(videos);
-  console.log(loading)
+
  if (loading) {
    return (
      <Loading/>

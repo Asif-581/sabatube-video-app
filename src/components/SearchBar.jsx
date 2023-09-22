@@ -3,10 +3,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Paper, IconButton } from "@mui/material";
 import { Search } from "@mui/icons-material";
+import { useGlobalContext } from "../context/context";
 
 function SearchBar() {
 
-  const [searchTerm, setSearchTerm] = useState("");
+  const { searchTerm, setSearchTerm } = useGlobalContext();
   const navigate = useNavigate();
   
   const handleSubmit = (e) => {

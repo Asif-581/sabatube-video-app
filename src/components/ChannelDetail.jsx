@@ -1,20 +1,19 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 import { Videos, ChannelCard } from "./";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
-import zIndex from "@mui/material/styles/zIndex";
+import { useGlobalContext } from "../context/context";
 
 function ChannelDetail() {
-  const [channelDetail, setChannelDetail] = useState(null);
-  const [videos, setVideos] = useState([]);
+  const { videos, setVideos, channelDetail, setChannelDetail } =
+    useGlobalContext();
 
   const { id } = useParams();
 
   useEffect(() => {
     fetchFromAPI(`channels?part="snippet&id=${id}`).then((data) => {
-      console.log(data);
       setChannelDetail(data?.items[0]);
     });
 

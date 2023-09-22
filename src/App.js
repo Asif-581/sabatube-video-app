@@ -5,7 +5,6 @@ import { Box } from "@mui/material";
 import {Navbar,Feed,SearchFeed,VideoDetail,ChannelDetail} from './components'
 function App() {
 
-
   return (
     <BrowserRouter>
       <Box sx={{ bgcolor: "#000" }}>

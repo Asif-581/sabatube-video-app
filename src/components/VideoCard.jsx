@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Card, CardContent, Box, Typography, CardMedia } from "@mui/material";
 import { CheckCircle } from "@mui/icons-material";
 import {
-  demoThumbnailUrl,
   demoChannelTitle,
   demoChannelUrl,
   demoVideoUrl,
@@ -19,7 +18,7 @@ const VideoCard = ({
   return (
     <Card
       sx={{
-        width: { xs: "100%", sm: "358px", md: "300px" },
+        width: { xs: "370px", sm: "358px", md: "300px" },
         boxShadow: "10px",
       }}
     >

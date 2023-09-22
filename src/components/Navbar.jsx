@@ -16,7 +16,6 @@ function Navbar() {
         top: 0,
         justifyContent: "space-between",
       }}
-      
     >
       <Link to="/" style={{ display: "flex", alignItems: "center" }}>
         <img src={logo} alt="logo" height={45} />
@@ -25,13 +24,14 @@ function Navbar() {
           sx={{
             marginLeft: { xs: "10px" },
             marginRight: { xs: "15px" },
-            fontSize: { md: "20px",xs:'15px' },
+            fontSize: { md: "20px", xs: "15px" },
           }}
-          fontWeight='bold'
+          fontWeight="bold"
         >
           SABATUBE
         </Typography>
       </Link>
+
       <SearchBar />
     </Stack>
   );

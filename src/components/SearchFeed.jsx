@@ -1,13 +1,14 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import { Videos } from "./";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 import { useParams } from "react-router-dom";
+import { useGlobalContext } from "../context/context";
 
 function SearchFeed() {
   
-  const [videos, setVideos] = useState([]);
+  const { videos, setVideos } = useGlobalContext();
   const {searchTerm} = useParams();
 
   useEffect(() => {
