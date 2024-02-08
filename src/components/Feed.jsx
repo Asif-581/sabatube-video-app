@@ -25,6 +25,8 @@ function Feed() {
   if (loading) {
     return <Loading />;
   }
+
+  const year = new Date().getFullYear();
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
       <Box
@@ -43,11 +45,11 @@ function Feed() {
           variant="body2"
           sx={{ mt: 1.5, color: "#fff" }}
         >
-          copywright 2023 @ AS Media
+          {`copywright ${year} @ SABATUBE`}
         </Typography>
       </Box>
 
-      <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
+      <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 1 }}>
         <Typography
           variant="h4"
           fontWeight="bold"

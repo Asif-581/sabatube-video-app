@@ -62,7 +62,7 @@ function VideoDetail() {
               url={`https://www.youtube.com/watch?v=${id}`}
               className="react-player"
               controls
-             
+             playing={true}
              
             />
             <Typography color="white" variant="h5" fontWeight="bold" p={1}>
