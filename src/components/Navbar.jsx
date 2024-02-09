@@ -8,6 +8,7 @@ function Navbar() {
   return (
     <Stack
       direction="row"
+      display='flex'
       alignItems="center"
       p={2}
       sx={{

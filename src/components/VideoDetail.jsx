@@ -62,7 +62,8 @@ function VideoDetail() {
               url={`https://www.youtube.com/watch?v=${id}`}
               className="react-player"
               controls
-             playing={true}
+              playing={true}
+              
              
             />
             <Typography color="white" variant="h5" fontWeight="bold" p={1}>
@@ -105,6 +106,7 @@ function VideoDetail() {
         <Box
           px={2}
           py={{ md: 1, xs: 5 }}
+          display='flex'
           justifyContent="center"
           alignItems="center"
         >
@@ -116,3 +118,7 @@ function VideoDetail() {
 }
 
 export default VideoDetail;
+
+
+
+

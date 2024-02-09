@@ -1,10 +1,17 @@
 import React from "react";
-import { Stack, Box} from "@mui/material";
-import { VideoCard, ChannelCard } from './';
+import { Stack, Box } from "@mui/material";
+import { VideoCard, ChannelCard } from "./";
 
-function Videos({videos,direction}) {
+function Videos({ videos, direction }) {
   return (
-    <Stack direction={direction||'row'} flexWrap="wrap" justifyContent="flex-start" gap='10px'>
+    <Stack
+      sx={{
+        flexWrap: "wrap",
+        justifyContent: { xs:"center",md:"flex-start"},
+        gap: {xs:'20px', md:"10px"},
+      }}
+      direction={direction || "row"}
+    >
       {videos?.map((item, idx) => {
         return (
           <Box key={idx}>
@@ -14,7 +21,6 @@ function Videos({videos,direction}) {
         );
       })}
     </Stack>
-   
   );
 }
 
